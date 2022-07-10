@@ -1,15 +1,10 @@
 package com.neoflex.gateway.controllers;
 
 import com.neoflex.gateway.dto.ApplicationDTO;
-import com.neoflex.gateway.dto.FinishRegistrationRequestDTO;
-import com.neoflex.gateway.dto.LoanApplicationRequestDTO;
-import com.neoflex.gateway.dto.LoanOfferDTO;
-import com.neoflex.gateway.feignclient.ApplicationClient;
 import com.neoflex.gateway.feignclient.DealClient;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +20,7 @@ public class AdminController {
 
     @Operation(description = "Получение заявки по id")
     @GetMapping("/deal/admin/application/{applicationId}")
-    public ResponseEntity<ApplicationDTO> getOffersByID(@PathVariable Long applicationId) {
+    public ResponseEntity<ApplicationDTO> getOffersByID(@PathVariable(value = "Id заявки") Long applicationId) {
         log.info("getOffersByID() - ResponseEntity<ApplicationDTO>: Получение заявки по id");
         return ResponseEntity.ok(dealClient.getOffersByID(applicationId));
     }
