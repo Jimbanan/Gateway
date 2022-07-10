@@ -22,12 +22,14 @@ public class ApplicationController {
     @Operation(description = "Создание заявки на кредит") //Первый
     @PostMapping("/application")
     public ResponseEntity<List<LoanOfferDTO>> createLoanApplication(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
+        log.info("createLoanApplication() - ResponseEntity<List<LoanOfferDTO>>: Получение списка предложений");
         return ResponseEntity.ok(applicationClient.application(loanApplicationRequestDTO));
     }
 
-    @Operation(description = "Выбор предложенния") //Второй
+    @Operation(description = "Выбор предложения") //Второй
     @PutMapping("/application/offer")
     public ResponseEntity<?> applyoffer(@RequestBody LoanOfferDTO loanOfferDTO) {
+        log.info("applyoffer() - ResponseEntity<?>: Выбор предложения кредита");
         return ResponseEntity.ok(applicationClient.offer(loanOfferDTO));
     }
 }
