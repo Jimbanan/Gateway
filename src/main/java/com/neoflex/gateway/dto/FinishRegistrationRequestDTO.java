@@ -1,7 +1,7 @@
 package com.neoflex.gateway.dto;
 
-import com.neoflex.deal.enums.Genders;
-import com.neoflex.deal.enums.MaritalStatus;
+import com.neoflex.gateway.enums.Genders;
+import com.neoflex.gateway.enums.MaritalStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
