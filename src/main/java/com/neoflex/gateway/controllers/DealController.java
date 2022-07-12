@@ -21,7 +21,7 @@ public class DealController {
     @Operation(description = "Расчет по выбранной заявке") //Третий
     @PostMapping("/calculate/{applicationId}")
     public ResponseEntity<?> finishRegistration(@RequestBody FinishRegistrationRequestDTO finishRegistrationRequestDTO,
-                                                @PathVariable(value = "ID оформляемой заявки") Long applicationId) {
+                                                @PathVariable Long applicationId) {
         log.info("finishRegistration() - ResponseEntity<?>: Создание заявки на кредит");
         dealClient.calculate(finishRegistrationRequestDTO, applicationId);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -29,7 +29,7 @@ public class DealController {
 
     @Operation(description = "Запрос на отправку документов")//Четвертый
     @PostMapping("/document/{applicationId}/send")
-    public ResponseEntity<?> sendDocs(@PathVariable(value = "ID оформляемой заявки") Long applicationId) {
+    public ResponseEntity<?> sendDocs(@PathVariable Long applicationId) {
         log.info("sendDocs() - ResponseEntity<?>: Запрос на отправку документов");
         dealClient.sendDocs(applicationId);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -37,7 +37,7 @@ public class DealController {
 
     @Operation(description = "Запрос на подписание документов") //Пятый
     @PostMapping("/document/{applicationId}/sign")
-    public ResponseEntity<?> singDocs(@PathVariable(value = "ID оформляемой заявки") Long applicationId) {
+    public ResponseEntity<?> singDocs(@PathVariable Long applicationId) {
         log.info("singDocs() - ResponseEntity<?>: Запрос на подписание документов");
         dealClient.singDocs(applicationId);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -45,7 +45,7 @@ public class DealController {
 
     @Operation(description = "Подписание документов") //Шестой
     @PostMapping("/document/{applicationId}/code")
-    public ResponseEntity<?> receiveSesCode(@PathVariable(value = "ID оформляемой заявки") Long applicationId,
+    public ResponseEntity<?> receiveSesCode(@PathVariable Long applicationId,
                                             @RequestBody Integer sesCode) {
         log.info("receiveSesCode() - ResponseEntity<?>: Подписание документов");
         dealClient.receiveSesCode(applicationId, sesCode);

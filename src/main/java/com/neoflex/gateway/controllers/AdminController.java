@@ -20,7 +20,7 @@ public class AdminController {
 
     @Operation(description = "Получение заявки по id")
     @GetMapping("/deal/admin/application/{applicationId}")
-    public ResponseEntity<ApplicationDTO> getOffersByID(@PathVariable(value = "Id заявки") Long applicationId) {
+    public ResponseEntity<ApplicationDTO> getOffersByID(@PathVariable Long applicationId) {
         log.info("getOffersByID() - ResponseEntity<ApplicationDTO>: Получение заявки по id");
         return ResponseEntity.ok(dealClient.getOffersByID(applicationId));
     }
