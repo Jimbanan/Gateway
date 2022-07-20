@@ -1,6 +1,5 @@
 package com.neoflex.gateway.feignclient;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.neoflex.gateway.dto.ApplicationDTO;
 import com.neoflex.gateway.dto.FinishRegistrationRequestDTO;
 import org.springframework.cloud.openfeign.FeignClient;

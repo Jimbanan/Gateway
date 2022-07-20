@@ -28,7 +28,7 @@ public class ApplicationController {
 
     @Operation(description = "Выбор предложения") //Второй
     @PutMapping("/application/offer")
-    public ResponseEntity<?> applyoffer(@RequestBody LoanOfferDTO loanOfferDTO) {
+    public ResponseEntity<List<LoanOfferDTO>> applyoffer(@RequestBody LoanOfferDTO loanOfferDTO) {
         log.info("applyoffer() - ResponseEntity<?>: Выбор предложения кредита");
         return ResponseEntity.ok(applicationClient.offer(loanOfferDTO));
     }
